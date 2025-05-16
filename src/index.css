@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fade In */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Pulse Effect */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  }
+}
+
+/* Slide Up In */
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Fade Out */
+@keyframes fade-out {
+  0% { opacity: 0.9; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+/* Wave Animation */
+@keyframes waveGrow {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Utility Classes */
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+.slide-in-up {
+  animation: slideInUp 0.3s ease-out;
+}
+
+.swipe-indicator {
+  @apply absolute flex items-center justify-center rounded-full p-5 bg-white/80 shadow-md;
+}
+
+.swipe-hint {
+  opacity: 0.9;
+}
+
+.wave {
+  @apply block w-5 h-5 bg-blue-500 rounded-full opacity-50 absolute;
+  animation: waveGrow 1.6s infinite;
+}
+
+.wave.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.wave.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.wave.delay-3 {
+  animation-delay: 0.6s;
+}
+
+.delay-1 {
+  animation-delay: 0.2s;
+}
+.delay-2 {
+  animation-delay: 0.4s;
+}
+.delay-3 {
+  animation-delay: 0.6s;
+}
+.delay-4 {
+  animation-delay: 0.8s;
+}
+  animation: waveGrow 2.5s ease-out infinite;
+  transform-origin: center bottom;
+
+/* Staggered wave delays */
+.delay-1 {
+  animation-delay: 0.6s;
+}
+.delay-2 {
+  animation-delay: 1.2s;
+}
+
+/* Prevent card flashing on load */
+.transform-gpu {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform-style: preserve-3d;
+}

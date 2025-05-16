@@ -1,0 +1,26 @@
+# supabase/config.toml
+
+[project]
+name = "theraway-app"
+
+[functions]
+
+# Stripe: Checkout Session Function
+[functions.stripe-checkout]
+endpoint = "stripe-checkout"
+methods = ["POST", "OPTIONS"]
+
+# Stripe: Webhook Function
+[functions.stripe-webhook]
+endpoint = "stripe-webhook"
+methods = ["POST", "OPTIONS"]
+
+# System Health Check (CRON)
+[functions.system-health-cron]
+endpoint = "system-health-cron"
+schedule = "every 15 minutes"
+
+# Auth Event Logging
+[functions.log-auth-events]
+endpoint = "log-auth-events"
+methods = ["POST"]
